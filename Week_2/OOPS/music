@@ -1,0 +1,55 @@
+package music; 
+
+public interface Playable {
+    void play(); 
+}
+package music.string; 
+import music.Playable;
+
+
+public class Veena implements Playable {
+    @Override
+    public void play() {
+        System.out.println("Playing the Veena");
+    }
+}
+package music.wind; 
+import music.Playable;
+
+
+public class Saxophone implements Playable {
+    @Override
+    public void play() {
+        System.out.println("Playing the Saxophone");
+    }
+}
+
+package live; 
+import music.Playable;
+import music.string.Veena;
+import music.wind.Saxophone;
+
+
+public class Test {
+    public static void main(String[] args) {
+        
+        // a. Create an instance of Veena and call play() method
+        Veena v = new Veena();
+        System.out.print("Instance of Veena: ");
+        v.play();
+        
+        // b. Create an instance of Saxophone and call play() method
+        Saxophone s = new Saxophone();
+        System.out.print("Instance of Saxophone: ");
+        s.play();
+        
+        // c. Place the above instances in a variable of type Playable and then call play()
+        System.out.print("Playable variable holding Veena: ");
+        Playable p1 = new Veena();
+        p1.play();
+        
+        System.out.print("Playable variable holding Saxophone: ");
+        Playable p2 = new Saxophone();
+        p2.play();
+    }
+}
