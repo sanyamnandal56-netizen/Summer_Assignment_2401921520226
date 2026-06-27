@@ -1,0 +1,119 @@
+// Create interface named test with member function square
+interface test {
+    int square(int b);
+}
+
+
+class arithmetic implements test {
+    @Override
+    public int square(int b) {
+        return b * b;
+    }
+}
+
+
+public class ToTestInt {
+    public static void main(String[] args) {
+        arithmetic calc = new arithmetic();
+        System.out.println("The square of 5 is: " + calc.square(5));
+    }
+}
+
+// Outer class with a function display
+class Outer {
+    void display() {
+        System.out.println("Display method from the Outer class.");
+    }
+    
+   
+    class Inner {
+        void display() {
+            System.out.println("Display method from the Inner class.");
+        }
+    }
+}
+
+public class TestNested {
+    public static void main(String[] args) {
+        
+        Outer outerObj = new Outer();
+        outerObj.display(); 
+        
+       
+        Outer.Inner innerObj = outerObj.new Inner();
+        innerObj.display(); 
+    }
+}
+
+public class Point {
+    
+    private int x;
+    private int y;
+    
+
+    public Point() {
+        this.x = 0;
+        this.y = 0;
+    }
+    
+   
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    
+    
+    public void setX(int x) {
+        this.x = x;
+    }
+    
+    public void setY(int y) {
+        this.y = y;
+    }
+    
+    public void setXY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+// Base class Box
+class Box {
+    int length, breadth;
+    
+   
+    Box(int length, int breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+    
+   
+    int area() {
+        return length * breadth;
+    }
+}
+
+
+class Box3d extends Box {
+    int height;
+    
+    
+    Box3d(int length, int breadth, int height) {
+        super(length, breadth);
+        this.height = height;
+    }
+    
+   
+    int volume() {
+       
+        return area() * height;
+    }
+}
+
+public class TestBox {
+    public static void main(String[] args) {
+        Box3d myBox = new Box3d(10, 5, 2);
+        System.out.println("Base Area: " + myBox.area());
+        System.out.println("Total Volume: " + myBox.volume());
+    }
+}
